@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "portico_development",
+    "database": "portico_db_development",
     "host": "127.0.0.1",
     "port": 8889,
     "dialect": "mysql"
