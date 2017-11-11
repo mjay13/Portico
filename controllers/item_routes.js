@@ -4,22 +4,16 @@ var db = require("../models/");
 module.exports = function(app) {
 // all 
 	// items
-	// with the same artist
-	app.get("/items/:artist", function(req, res){
-		db.items.findAll({
-
-		});
-		result.render("#");
-	});
+	
 	// with ___ in the title
-	app.get("/items/:titleincludes", function(req, res){
+	app.get("/items/title/:titleincludes", function(req, res){
 		db.items.findAll({
 
 		});
 		result.render("#");
 	});
 	// range ### through ###
-	app.get("/items/:range", function(req, res){
+	app.get("/items/range/:range", function(req, res){
 		db.items.findAll({
 
 		});
@@ -31,7 +25,7 @@ module.exports = function(app) {
 
 	// active (by default)
 	// inactive
-	app.get("/items/:status", function(req, res){
+	app.get("/items/status/:status", function(req, res){
 		// Swtich active or inactive
 		db.items.findAll({
 
@@ -40,47 +34,96 @@ module.exports = function(app) {
 	});
 	
 	// date updated (only year, month, day)
-	// ascending
-	// descending
-	// date
-	// by year ___
-	// by year + month ___ + ___
-	// year + month + day ___ + ___
+		// ascending
+		// descending
+	// date arrival
+		// by year ___
+		// by year + month ___ + ___
+		// year + month + day ___ + ___
 	// date created (only year, month, day)
-	// ascending
-	// descending
-	// date
-	// by year ___
-	// by year + month ___ + ___
-	// year + month + day ___ + ___
-	// price
-	// specific price of ___
-	// range of ___
-	// below ___
-	// above ___
-	// quantity
-	// of ___
-	// range of ___ through ___
-	// consignment percentage 
-	// of ___
-	// over 50%
-	// all ascending
-	// all descending
-	// one item 
-	// by ###
+		// ascending
+		// descending
+	// date updated, date created, arrval (where), (for) year, year + month, year + month + day
+    app.get("/items/date/:date/:specifics", function(req, res) {
+        // db.items.findAll({
+
+        // });
+        result.render("#");
+    });
+	// price options
+	app.get("/items/price/:options", function(req, res){
+		// switch high to low, low to high
+		// specific price of ___
+		// range of ___
+		// below ___
+		// above ___
+		db.items.findAll({
+
+		});
+		result.render("#");
+	});
+	
+	app.get("/artists/quantity/:quantity", function(req, res) {
+        // req.params.:quantity
+        // of ___
+		// range of ___ through ___
+		// consignment percentage 
+		// of ___
+		// over 50%
+		// all ascending
+		// all descending
+        db.items.findAll({
+
+        });
+
+        result.render("#");
+    });
 	// by primary key (Database reference key)
-	// ordered (for different kinds of queries, possibly used to order the returns from all option?)
-	// numerically ascending
-	// numerically descending
-	// by consignment percentage
-	// ascending
-	// descending
-	// all items
-	app.get("/items", function(req, res){
+	app.get("/items/primarykey/:key", function(req, res){
+		db.items.findOne({
+
+		});
+		result.render("#");
+	});
+ 
+	// by ### with same artist
+	app.get("/items/artist/:artist", function(req, res){
+		// switch artist name
+		// artist ### id
 		db.items.findAll({
 
 		});
 		result.render("#");
 	});
 
+	// all items ordered numerically
+	app.get("/items/ordered/num/:order", function(req, res){
+		// numerically ascending
+		// numerically descending
+	});
+
+	// all items alphabetically
+	app.get("/items/ordered/alph/:order", function(req, res){
+		// alphabetically ascending
+		// alphabetically descending
+	});
+
+	// one item 
+	app.get("/items/id/:fullid", function(req, res){
+		db.items.findOne({
+
+		});
+		result.render("#");
+	});
+	
+	// all items
+	app.get("/items", function(req, res){
+		// default order by artist low-high, then number low-high
+		db.items.findAll({
+
+		});
+		result.render("#");
+	});
+
+// end of export
 };

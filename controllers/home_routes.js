@@ -8,15 +8,15 @@ module.exports = function(app) {
 	});
 
 	// login, beginning on intial load
-	app.get("/login", function(req, res){
+	app.get("/", function(req, res){
 	
-		result.render("index");
+		result.render("#");
 	});
 
 	// login specific
 	app.get("/login", function(req, res){
 	
-		result.render("index");
+		result.render("#");
 	});
 
 

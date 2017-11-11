@@ -16,7 +16,7 @@ module.exports = function(app) {
     // homepage with search?
 
     // date updated or date create (where), (for) year, year + month, year + month + day
-    app.get("/artists/:date/:specifics", function(req, res) {
+    app.get("/artists/date/:date/:specifics", function(req, res) {
         
 
         // db.artists.findAll({
@@ -29,14 +29,14 @@ module.exports = function(app) {
     app.get("/artists/address/:option", function(req, res) {
         // swich zipcode or state
 
-        // db.artists.findAll({
+        db.artists.findAll({
 
-        // });
+        });
         result.render("#");
     });
 
     // id range
-    app.get("/artists/id/:range", function(req, res) {
+    app.get("/artists/id/range/:range", function(req, res) {
         // req.params.range
         // db.artists.findAll({
 
@@ -56,14 +56,25 @@ module.exports = function(app) {
     // by last name
 	app.get("/artists/name/:artistname", function(req, res){
 		// req.params.artistname
-		// db.artists.findOne({
+		db.artists.findOne({
 
-		// });
+		});
 		result.render("#");
 	});
 
+
+	// by consignment percentage
+	app.get("/artists/consignment/:percentage", function(req, res) {
+        // req.params.:percentage
+        db.artists.findAll({
+
+        });
+
+        result.render("#");
+    });
+
 	// by artist id
-    app.get("/artists/:id", function(req, res) {
+    app.get("/artists/id/:id", function(req, res) {
         // req.params.id
         db.artists.findOne({
 
@@ -73,22 +84,36 @@ module.exports = function(app) {
     });
 
     // by primary key
-    app.get("/artists/:primarykey", function(req, res) {
+    app.get("/artists/primarykey/:primarykey", function(req, res) {
        // req.params.primarykey
-        // db.artists.findOne({
+        db.artists.findOne({
 
-        // });
+        });
 
         result.render("#");
     });
 
-    // all artists
-    app.get("/artists/all", function(req, res) {
+    // all artists active or inactive
+    app.get("/artists/status/:status", function(req, res) {
+    	// active or inactive switch
         db.artists.findAll({
 
         });
         result.render("#");
     });
+
+    // all artists ordered numerically
+	app.get("/artists/ordered/num/:order", function(req, res){
+
+		// numerically ascending
+		// numerically descending
+	});
+
+	// all artists alphabetically
+	app.get("/artists/ordered/alph/:order", function(req, res){
+		// alphabetically ascending
+		// alphabetically descending
+	});
 
     // artist homepage
     app.get("/artists", function(req, res) {
@@ -100,10 +125,10 @@ module.exports = function(app) {
     });
 
 
+ // POSTS
 
-    // PUTS
 
-    //POSTS
+ // PUTS
 
 
 
