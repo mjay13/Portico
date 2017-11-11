@@ -9,6 +9,7 @@ body {
 
 #homepage-card {
 	margin-top: 15%;
+	box-shadow: 5px 5px 10px #9a9a9a;
 }
 
 #homepage-card > .card-body {
@@ -18,7 +19,7 @@ body {
 
 .card {
 	padding: 0px;
-	box-shadow: 5px 5px 10px #9a9a9a;
+	/*box-shadow: 5px 5px 10px #9a9a9a;*/
 }
 
 #catalog-login, #artist-login {
@@ -32,4 +33,21 @@ body {
 
 .btn-block+.btn-block {
 	margin-top: 0px;
+}
+
+#artist-profile {
+	margin-top: 5rem;
+}
+
+#artist-profile > .card-body {
+	margin-top: 5%;
+	padding: 0px;
+}
+
+#items-list {
+	margin-top: 5rem;
+}
+
+#artist-item {
+	margin-top: 1rem;
 }
