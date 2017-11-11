@@ -1,0 +1,35 @@
+body {
+	background-image: url("../images/background.png");
+	background-repeat: no-repeat;
+	/*background-color: #414042;*/
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+#homepage-card {
+	margin-top: 15%;
+}
+
+#homepage-card > .card-body {
+	margin-top: 5%;
+	padding: 0px;
+}
+
+.card {
+	padding: 0px;
+	box-shadow: 5px 5px 10px #9a9a9a;
+}
+
+#catalog-login, #artist-login {
+	min-width: 85px;
+	border-radius: 0px;
+}
+
+#artist-login {
+	margin-top: 5rem;
+}
+
+.btn-block+.btn-block {
+	margin-top: 0px;
+}
