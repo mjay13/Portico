@@ -118,7 +118,7 @@ body {
 	border-radius: 0;
 }
 
-#add-new-artist {
+#add-new-artist, #show-all-items {
 	margin-top: 1rem;
 	border-radius: 0;
 }
