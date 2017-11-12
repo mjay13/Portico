@@ -4,8 +4,6 @@ module.exports = function(sequelize, DataTypes) {
     var artist = sequelize.define("artist", {
         // artist ### number (ex. 123) (maybe auto increments from last one created)
         reference_number: {
-            // the has many for the items
-            // (123)
             type: DataTypes.INTEGER(3),
             validate: {
                 len: [3],
@@ -16,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
         // items belonging to the artist
         items: {
             associate: function(models) {
-                artist.hasMany(item, { foreignKey: 'reference_number', sourceKey: 'isoCode' });
+                artist.hasMany(item, { foreignKey: 'reference_number'}); //, sourceKey: 'isoCode'
             }
         },
         // artist last name
@@ -83,23 +81,15 @@ module.exports = function(sequelize, DataTypes) {
         },
         // website/social media
         website_social_media: {
-            allowNull: true,
             validate: {
                 isUrl: true,
+                notNull: false,
             }
         },
         // name/business to write check to
         payable_to: {
             type: DataTypes.STRING,
             allowNull: false,
-            // defaultValue: {
-            //     // SELECT CONCAT(field1, field2, field3) FROM table1
-            //     //attributes: [models.sequelize.literal("name_first || ' ' || name_last"), 'payable_to']
-
-            //     where: artist.where(artist.fn("concat", artist.col("name_first"), artist.col("name_last")), {
-            //         like: '%John Do%'
-            //     })
-            // }
         },
         // consignment percentage (default 50%)
         consignment_percentage: {
