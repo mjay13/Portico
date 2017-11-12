@@ -112,3 +112,13 @@ body {
 /*.fa {
 	color: tomato;
 }*/
+
+#search-bar {
+	margin-top: 1rem;
+	border-radius: 0;
+}
+
+#add-new-artist {
+	margin-top: 1rem;
+	border-radius: 0;
+}

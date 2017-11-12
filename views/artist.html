@@ -103,6 +103,46 @@
 
 <!-- ==========================================================================================	 -->
 	<div id="main-container" class="container">
+		<div class="row">
+			
+			<div id="search-bar" class="col-lg-6">
+				<!-- <h6>View Existing Artist</h6> -->
+			    <div class="input-group">
+			      <input type="text" class="form-control" placeholder="Search for Artist Number" aria-label="Search">
+			      <span class="input-group-btn">
+			        <button class="btn btn-secondary" type="button">Go!</button>
+			      </span>
+			    </div>
+			</div>
+
+			<div id="add-new-artist" class="col-lg-6 text-right">
+				<button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#artistModal">ADD NEW ARTIST</button>
+			</div>
+				<!-- <div id="artist-search-bar" class="card bg-dark">
+	  				<div class="card-body">
+						
+	  					<form class="form-inline">
+						  <label class="sr-only" for="inlineFormInputName2">First Name</label>
+						  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputName2" placeholder="Jane Doe">
+
+						  <label class="sr-only" for="inlineFormInputName2">Last Name</label>
+						  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputName2" placeholder="Jane Doe">
+
+						  <label class="sr-only" for="inlineFormInputName2">ID Number</label>
+						  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputName2" placeholder="Jane Doe">
+						  
+						  <button type="submit" class="btn btn-primary">Submit</button>
+						  
+						</form>
+						
+	  				</div>
+				</div> -->
+			
+
+		</div>	
+		<hr>
+	
+<!-- =============================================================================================== -->
 		<div class="row"> 
 			<div class="col-lg-4">
 				<div id="artist-profile" class="card">
@@ -189,7 +229,13 @@
 			
 
 	
+<!-- <script type="text/javascript">
+	window.onload = function() {
+	$("#artist-profile").hide();
+	$("#items-list").hide();
+	};
 
+</script> -->
 
 
 </body>
