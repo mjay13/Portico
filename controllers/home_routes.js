@@ -4,19 +4,19 @@ var db = require("../models/");
 module.exports = function(app) {
 	app.get("/home", function(req, res){
 	
-		result.render("#");
+		res.render("#");
 	});
 
 	// login, beginning on intial load
-	app.get("/login", function(req, res){
+	app.get("/", function(req, res){
 	
-		result.render("index");
+		res.redirect("/home");
 	});
 
 	// login specific
 	app.get("/login", function(req, res){
 	
-		result.render("index");
+		result.render("#");
 	});
 
 
