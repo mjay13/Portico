@@ -19,96 +19,96 @@ module.exports = function(app) {
     app.get("/api/artists/date/:date/:specifics", function(req, res) {
         
 
-        // db.artists.findAll({
+        // db.artist.findAll({
 
         // });
-        result.render("#");
+        res.render("#");
     });
 
     // artist zipcode or state
     app.get("/api/artists/address/:option", function(req, res) {
         // swich zipcode or state
 
-        db.artists.findAll({
+        db.artist.findAll({
 
         });
-        result.render("#");
+        res.render("#");
     });
 
     // id range
     app.get("/api/artists/id/range/:range", function(req, res) {
         // req.params.range
-        // db.artists.findAll({
+        // db.artist.findAll({
 
         // });
-        result.render("#");
+        res.render("#");
     });
 
     // by last name starts with
 	app.get("/api/artists/name/lastnameletterof/:letter", function(req, res){
 		// // req.params.letter
-		// db.artists.findAll({
+		// db.artist.findAll({
 
 		// });
-		result.render("#");
+		res.render("#");
 	});
 
     // by last name
 	app.get("/api/artists/name/:artistname", function(req, res){
 		// req.params.artistname
-		db.artists.findOne({
+		db.artist.findOne({
 
 		});
-		result.render("#");
+		res.render("#");
 	});
 
 
 	// by consignment percentage
 	app.get("/api/artists/consignment/:percentage", function(req, res) {
         // req.params.:percentage
-        db.artists.findAll({
+        db.artist.findAll({
 
         });
 
-        result.render("#");
+        res.render("#");
     });
 
 	// by artist id
     app.get("/api/artists/id/:id", function(req, res) {
         // req.params.id
-        db.artists.findOne({
+        db.artist.findOne({
 
         });
 
-        result.render("#");
+        res.render("#");
     });
 
     // by primary key
     app.get("/api/artists/primarykey/:primarykey", function(req, res) {
        // req.params.primarykey
-        db.artists.findOne({
+        db.artist.findOne({
 
         });
 
-        result.render("#");
+        res.render("#");
     });
 
     // all total items in a number form
     app.get("/api/artists/items", function(req, res) {
  
-        db.artists.findAll({
+        db.artist.findAll({
 
         });
-        result.render("#");
+        res.render("#");
     });
 
     // all artists active or inactive
     app.get("/api/artists/status/:status", function(req, res) {
     	// active or inactive switch
-        db.artists.findAll({
-        	
+        db.artist.findAll({
+
         });
-        result.render("#");
+        res.render("#");
     });
 
     // all artists ordered numerically
@@ -128,7 +128,7 @@ module.exports = function(app) {
         //db.artists.findAll({
         // or search page
         //});
-        result.render("#");
+        res.render("#");
     });
 
 

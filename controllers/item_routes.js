@@ -7,17 +7,17 @@
 			
 			// with ___ in the title
 			app.get("/api/items/title/:titleincludes", function(req, res){
-				db.items.findAll({
+				db.item.findAll({
 
 				});
-				result.render("#");
+				res.render("#");
 			});
 			// range ### through ###
 			app.get("/api/items/range/:range", function(req, res){
-				db.items.findAll({
+				db.item.findAll({
 
 				});
-				result.render("#");
+				res.render("#");
 			});
 			// by keyword ___ (singular) or ___ + ___ (optional adding keywords?)
 
@@ -27,10 +27,10 @@
 			// inactive
 			app.get("/api/items/status/:status", function(req, res){
 				// Swtich active or inactive
-				db.items.findAll({
+				db.item.findAll({
 
 				});
-				result.render("#");
+				res.render("#");
 			});
 			
 			// date updated (only year, month, day)
@@ -45,10 +45,10 @@
 				// descending
 			// date updated, date created, arrval (where), (for) year, year + month, year + month + day
 		    app.get("/api/items/date/:date/:specifics", function(req, res) {
-		        // db.items.findAll({
+		        // db.item.findAll({
 
 		        // });
-		        result.render("#");
+		        res.render("#");
 		    });
 			// price options
 			app.get("/api/items/price/:options", function(req, res){
@@ -57,10 +57,10 @@
 				// range of ___
 				// below ___
 				// above ___
-				db.items.findAll({
+				db.item.findAll({
 
 				});
-				result.render("#");
+				res.render("#");
 			});
 			
 			app.get("/api/artists/quantity/:quantity", function(req, res) {
@@ -72,28 +72,28 @@
 				// over 50%
 				// all ascending
 				// all descending
-		        db.items.findAll({
+		        db.item.findAll({
 
 		        });
 
-		        result.render("#");
+		        res.render("#");
 		    });
 			// by primary key (Database reference key)
 			app.get("/api/items/primarykey/:key", function(req, res){
-				db.items.findOne({
+				db.item.findOne({
 
 				});
-				result.render("#");
+				res.render("#");
 			});
 		 
 			// by ### with same artist
 			app.get("/api/items/artist/:artist", function(req, res){
 				// switch artist name
 				// artist ### id
-				db.items.findAll({
+				db.item.findAll({
 
 				});
-				result.render("#");
+				res.render("#");
 			});
 
 			// all items ordered numerically
@@ -110,19 +110,19 @@
 
 			// one item 
 			app.get("/api/items/id/:fullid", function(req, res){
-				db.items.findOne({
+				db.item.findOne({
 
 				});
-				result.render("#");
+				res.render("#");
 			});
 			
 			// all items
 			app.get("/api/items", function(req, res){
 				// default order by artist low-high, then number low-high
-				db.items.findAll({
+				db.item.findAll({
 
 				});
-				result.render("#");
+				res.render("#");
 			});
 
 		// end of export
