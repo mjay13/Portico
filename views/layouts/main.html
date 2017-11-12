@@ -18,27 +18,27 @@
 
 </head>
 <body>
-	
+	<!-- style="background-color: #86d4ee" -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container">
 			  <!-- <a class="navbar-brand" href="#">Navbar</a> -->
 			  <a class="navbar-brand" href="#">
-			    <img src="../../public/assets/images/logo.png" width="330" height="auto" alt="">
+			    <img src="../../public/assets/images/logo-white.svg" width="330" height="auto" alt="">
 			  </a>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			    <span class="navbar-toggler-icon"></span>
 			  </button>
 
 			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-			    <ul class="navbar-nav mr-auto">
+			    <ul id="nav-options" class="navbar-nav mr-auto">
 			      <li class="nav-item active">
-			        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+			        <a class="nav-link" href="../main.html">Home <span class="sr-only">(current)</span></a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link" href="#">Artist</a>
+			        <a class="nav-link" href="../artist.html">Artist</a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link" href="#">Catalog</a>
+			        <a class="nav-link" href="../catalog.html">Catalog</a>
 			      </li>
 			    </ul>
 			    
@@ -46,23 +46,23 @@
 		</div>
 	</nav>
 
-	<div class="container">
+	<div id="home-container" class="container">
 		<div class="row"> 
-			<div class="col-lg-4" style="background-color: black; height: 30px"></div>
+			<div class="col-lg-4"></div>
 		
 
 		<div id="homepage-card" class="card text-center col-lg-4">
-		  <img class="card-img-top" src="../../public/assets/images/athens.jpg" alt="Card image cap">
+		  <img class="card-img-top" src="../../public/assets/images/welcome-animation.gif" alt="Card image cap">
 		  <div class="card-body">
 		    <h4 class="card-title">Welcome</h4>
 		    <p class="card-text-centered">Select an option to begin.</p>
-		    <a href="#" id="artist-login" class="btn btn-success btn-lg btn-block">Artist</a>
-		    <a href="#" id="catalog-login" class="btn btn-primary btn-lg btn-block">Catalog</a>
+		    <a href="../artist.html" id="artist-login" class="btn btn-success btn-lg btn-block">Find Artist</a>
+		    <a href="../catalog.html" id="catalog-login" class="btn btn-primary btn-lg btn-block">View Catalog</a>
 		  </div>
 		</div>
 
 
-			<div class="col-lg-4" style="background-color: black; height: 30px"></div>
+			<div class="col-lg-4"></div>
 		</div>			
 	
 	<!-- {{{ body }}} -->
@@ -70,6 +70,18 @@
 		
 	</div> <!-- CLOSES CONTAINER -->
 
+	<nav class="navbar fixed-bottom navbar-dark bg-dark">
+		<div class="container text-center">
+			<p class="text-muted credit text-center">xyz</p>
+		</div>
+  		
+	</nav>
 
+<script type="text/javascript">
+	window.onload = function() {
+	$("#nav-options").hide();
+	};
+
+</script>
 </body>
 </html>
