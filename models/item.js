@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
         // artist item is assigned to (linked  ex. 123)
         artist_id_assignment: {
             associate: function(models) {
-                item.belongsTo(artist, { foreignKey: 'reference_number', targetKey: 'isoCode' });
+                item.belongsTo(artist, { foreignKey: 'reference_number' }); //targetKey: 'isoCode'
             },
         },
         // ### number for item to assign with artist number (123-001)*

@@ -106,7 +106,7 @@ module.exports = function(app) {
     app.get("/api/artists/status/:status", function(req, res) {
     	// active or inactive switch
         db.artists.findAll({
-
+        	
         });
         result.render("#");
     });
