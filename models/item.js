@@ -2,20 +2,13 @@
 module.exports = function(sequelize, DataTypes) {
     // new item
     var item = sequelize.define("item", {
-        // artist item is assigned to (linked  ex. 123)
-        // artist_id_assignment: {
-        //     associate: function(models) {
-        //         item.belongsTo(models.artist, { foreignKey: 'reference_number' }); //targetKey: 'isoCode'
-        //     },
-        // },
         // ### number for item to assign with artist number (123-001)*
-        reference_number: {
+        item_reference_number: {
             // belongs to artist
             type: DataTypes.INTEGER,
             validate: {
-                len: [3],
                 not: ["[a-z]", 'i'],
-                notNull: true
+                //len: [3],
             }
         },
         // title*
@@ -31,9 +24,7 @@ module.exports = function(sequelize, DataTypes) {
         quantity: {
             type: DataTypes.INTEGER,
             validate: {
-                len: [3],
                 not: ["[a-z]", 'i'],
-                notNull: true
             }
         },
         // // retail price* 
@@ -59,7 +50,7 @@ module.exports = function(sequelize, DataTypes) {
     // artist item is assigned to (linked  ex. 123)
 
     item.associate = function(models) {
-        item.belongsTo(models.artist, { foreignKey: 'reference_number' }); //targetKey: 'isoCode'
+        item.belongsTo(models.artist);
     };
 
     return item;

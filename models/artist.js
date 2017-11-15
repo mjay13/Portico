@@ -3,28 +3,18 @@ module.exports = function(sequelize, DataTypes) {
     // new artist
     var artist = sequelize.define("artist", {
         // artist ### number (ex. 123) (maybe auto increments from last one created)
-        reference_number: {
-            type: DataTypes.INTEGER(3),
+        artist_reference_number: {
+            type: DataTypes.INTEGER,
             validate: {
-                len: [3],
                 not: ["[a-z]", 'i'],
-                notNull: true
+                //len: [3],
             }
         },
-        // items belonging to the artist
-        // items.associate = function(models) {
-        //     artist.hasMany(models.item, { 
-
-        //     foreignKey: 'reference_number'
-
-        //     }); //, sourceKey: 'isoCode'
-        // }
         // artist last name
         name_last: {
             type: DataTypes.STRING,
             validate: {
                 is: ["^[a-z]+$", 'i'],
-                notNull: true
             }
         },
         // // artist first name
@@ -32,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             validate: {
                 is: ["^[a-z]+$", 'i'],
-                notNull: true
+               
             }
         },
         // // street address
@@ -45,7 +35,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             validate: {
                 is: ["^[a-z]+$", 'i'],
-                notNull: true
+                
             }
         },
         // // state
@@ -54,7 +44,7 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 is: ["^[a-z]+$", 'i'],
                 len: [2],
-                notNull: true
+            
             }
         },
         // // zipcode
@@ -62,7 +52,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             validate: {
                 not: ["[a-z]", 'i'],
-                notNull: true
+                
             }
         },
         // // phone
@@ -70,29 +60,31 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             validate: {
                 not: ["[a-z]", 'i'],
-                notNull: true
+                // len: [10]
+               
             }
         },
         // // email
         email: {
             type: DataTypes.STRING,
+            allowNull: true,
             validate: {
                 isEmail: true,
-                notNull: true
+                
             }
         },
         // // website/social media
         website_social_media: {
             type: DataTypes.STRING,
+            allowNull: true,
             validate: {
                 isUrl: true,
-                notNull: false
+               
             }
         },
         // // name/business to write check to
         payable_to: {
             type: DataTypes.STRING,
-            allowNull: false
         },
         // // consignment percentage (default 50%)
         consignment_percentage: {
@@ -112,18 +104,14 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.BOOLEAN,
             defaultValue: true
         },
-        date_last_updated: {
-            type: DataTypes.DATE
-        }
+        // date_last_updated: {
+        //     type: DataTypes.DATE,
+        // }
         // end of artist
     });
 
     artist.associate = function(models) {
-        artist.hasMany(models.item, {
-
-            foreignKey: 'reference_number'
-
-        }); //, sourceKey: 'isoCode'
+        artist.hasMany(models.item);
     };
     return artist;
     // end of export 
