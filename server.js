@@ -32,6 +32,9 @@ app.set("view engine", "handlebars");
 
 // Listen on port 3000.
 db.sequelize.sync({force: true}).then(function() {
+  require("./seeds_artist.js");
+  require("./seeds_item.js");
+
   app.listen(port, function (err, restults){
   	if (err) throw err;
   	console.log("Express on :3000 is a go!");
