@@ -1,17 +1,15 @@
-var express = require("express");
-var router = express.Router();
 var db = require("../models");
 
 
-module.exports = function(router) {
+module.exports = function(app) {
     // get route -> index
-    router.get("/", function(req, res) {
+    app.get("/", function(req, res) {
         // send us to the next get function instead.
         res.render("index");
     });
 
     // get for all items in ascending order
-    router.get("/catalog", function(req, res) {
+    app.get("/catalog", function(req, res) {
 
         db.item.findAll({
 
@@ -30,11 +28,11 @@ module.exports = function(router) {
     });
 
     // get for item by reference number (not including the artist ref num)
-    router.get("/catalog/item/:itemref", function(req, res) {
+    app.get("/catalog/item/:itemref", function(req, res) {
 
         db.item.findAll({
                 where: {
-                	item_reference_number: req.params.itemref
+                    item_reference_number: req.params.itemref
                 }
             })
 
@@ -47,27 +45,39 @@ module.exports = function(router) {
             });
     });
     // get all items with the same artist
-    // needs work
-    router.get("/catalog/artistitems/:artistref", function(req, res) {
+    app.get("/catalog/item/by-artist/:artistref", function(req, res) {
 
-        db.item.findAll({
-                // with a foriegn key for the artist
-                // make into a variable
-                // artistId
-                // go into the artist table and find the matching artist_reference_number with the :artistref
+        db.artist.findOne({ where: { artist_reference_number: req.params.artistref } })
+            .then(function(dbArtist) {
 
+                db.item.findAll({ where: { artistId: dbArtist.id } })
+                    .then(function(dbItem) {
+                        var hbsObject = {
+                            item: dbItem
+                        };
+                        return res.render("catalog", hbsObject);
+                    });
+
+            });
+    });
+
+
+    app.put("/item/update/:id", function(req, res) {
+        db.item.update({
+                // item_reference_number: "012",
+                // artistId: 1,
+                // title: "Three Palm Trees",
+                // description: "5x7 inch framed painting",
+                // quantity: 0,
+                // retail_price: 80.00,
             })
+            // pass the result of our call
             .then(function(dbItem) {
-                // pass the variable, and look for the artist_reference_number that equals the req.params.artistref
-                // where: {
-                //     artist_reference_number: req.params.artistref
-                // }
+                // log the result to our terminal/bash window
+                console.log(dbItem);
 
-
-                var hbsObject = {
-                    item: dbItem
-                };
-                return res.render("catalog", hbsObject);
+                // redirect
+                res.redirect("catalog");
             });
     });
 
