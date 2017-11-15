@@ -8,102 +8,105 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [3],
                 not: ["[a-z]", 'i'],
-                notNull: true,
+                notNull: true
             }
         },
         // items belonging to the artist
-        items: {
-            associate: function(models) {
-                artist.hasMany(item, { foreignKey: 'reference_number'}); //, sourceKey: 'isoCode'
-            }
-        },
+        // items.associate = function(models) {
+        //     artist.hasMany(models.item, { 
+
+        //     foreignKey: 'reference_number'
+
+        //     }); //, sourceKey: 'isoCode'
+        // }
         // artist last name
         name_last: {
             type: DataTypes.STRING,
             validate: {
-                is: ["^[a-z]+$",'i'],
-                notNull: true,
+                is: ["^[a-z]+$", 'i'],
+                notNull: true
             }
         },
-        // artist first name
+        // // artist first name
         name_first: {
             type: DataTypes.STRING,
             validate: {
-                is: ["^[a-z]+$",'i'],
-                notNull: true,
+                is: ["^[a-z]+$", 'i'],
+                notNull: true
             }
         },
-        // street address
+        // // street address
         address_street: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: false
         },
-        // city
+        // // city
         address_city: {
             type: DataTypes.STRING,
             validate: {
-                is: ["^[a-z]+$",'i'],
-                notNull: true,
+                is: ["^[a-z]+$", 'i'],
+                notNull: true
             }
         },
-        // state
+        // // state
         address_state: {
             type: DataTypes.STRING,
             validate: {
-                is: ["^[a-z]+$",'i'],
+                is: ["^[a-z]+$", 'i'],
                 len: [2],
-                notNull: true,
-            },
+                notNull: true
+            }
         },
-        // zipcode
+        // // zipcode
         address_zipcode: {
             type: DataTypes.INTEGER,
             validate: {
                 not: ["[a-z]", 'i'],
-                notNull: true,
+                notNull: true
             }
         },
-        // phone
+        // // phone
         phone: {
             type: DataTypes.INTEGER,
             validate: {
                 not: ["[a-z]", 'i'],
-                notNull: true,
+                notNull: true
             }
         },
-        // email
+        // // email
         email: {
             type: DataTypes.STRING,
             validate: {
                 isEmail: true,
-                notNull: true,
+                notNull: true
             }
         },
-        // website/social media
+        // // website/social media
         website_social_media: {
+            type: DataTypes.STRING,
             validate: {
                 isUrl: true,
-                notNull: false,
+                notNull: false
             }
         },
-        // name/business to write check to
+        // // name/business to write check to
         payable_to: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: false
         },
-        // consignment percentage (default 50%)
+        // // consignment percentage (default 50%)
         consignment_percentage: {
             type: DataTypes.INTEGER,
             defaultValue: (50),
             validate: {
-                not: ["[a-z]", 'i'],
+                not: ["[a-z]", 'i']
             }
         },
-        // date on contract
+        // // date on contract
         date_contract: {
             type: DataTypes.DATEONLY
         },
-        // status active/inactive
+        // // status active/inactive
         status: {
             //defaultValue: active
             type: DataTypes.BOOLEAN,
@@ -112,8 +115,16 @@ module.exports = function(sequelize, DataTypes) {
         date_last_updated: {
             type: DataTypes.DATE
         }
-    // end of artist
+        // end of artist
     });
+
+    artist.associate = function(models) {
+        artist.hasMany(models.item, {
+
+            foreignKey: 'reference_number'
+
+        }); //, sourceKey: 'isoCode'
+    };
     return artist;
-   // end of export 
+    // end of export 
 };
