@@ -17,7 +17,6 @@ module.exports = function(app) {
                     ["item_reference_number", "ASC"]
                 ]
             })
-
             .then(function(dbItem) {
 
                 var hbsObject = {
@@ -35,7 +34,6 @@ module.exports = function(app) {
                     item_reference_number: req.params.itemref
                 }
             })
-
             .then(function(dbItem) {
 
                 var hbsObject = {
@@ -47,17 +45,24 @@ module.exports = function(app) {
     // get all items with the same artist
     app.get("/catalog/item/by-artist/:artistref", function(req, res) {
 
-        db.artist.findOne({ where: { artist_reference_number: req.params.artistref } })
+        db.artist.findOne({
+                where: {
+                    artist_reference_number: req.params.artistref
+                }
+            })
             .then(function(dbArtist) {
 
-                db.item.findAll({ where: { artistId: dbArtist.id } })
+                db.item.findAll({
+                        where: {
+                            artistId: dbArtist.id
+                        }
+                    })
                     .then(function(dbItem) {
                         var hbsObject = {
                             item: dbItem
                         };
                         return res.render("catalog", hbsObject);
                     });
-
             });
     });
 
