@@ -1,7 +1,7 @@
 var db = require("./models");
 
 db.item.create({
-	item_reference_number: 1,
+	item_reference_number: "001",
 	artistId: 1,
 	title: "Desk Art Painting",
 	description: "3x3 inch painting with wood display easel",
@@ -12,7 +12,7 @@ db.item.create({
 });
 
 db.item.create({
-	item_reference_number: 12,
+	item_reference_number: "012",
 	artistId: 1,
 	title: "Three Palm Trees",
 	description: "5x7 inch framed painting",
@@ -23,7 +23,7 @@ db.item.create({
 });
 
 db.item.create({
-	item_reference_number: 3,
+	item_reference_number: "003",
 	artistId: 2,
 	title: "Indonesian Puppet",
 	description: "3x4 ft framed glass mosaic of white figure in profile",
@@ -35,7 +35,7 @@ db.item.create({
 });
 
 db.item.create({
-	item_reference_number: 9,
+	item_reference_number: "009",
 	artistId: 2,
 	title: "Traffic",
 	description: "3x4 ft framed glass mosaic of multiple fish",

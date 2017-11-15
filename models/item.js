@@ -5,10 +5,9 @@ module.exports = function(sequelize, DataTypes) {
         // ### number for item to assign with artist number (123-001)*
         item_reference_number: {
             // belongs to artist
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             validate: {
-                not: ["[a-z]", 'i'],
-                //len: [3],
+                len: [3],
             }
         },
         // title*
