@@ -14,39 +14,52 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
 	<!-- My Custom CSS -->
-	<link rel="stylesheet" href="../../assets/css/style.css" type="text/css" />
+	<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
 
 </head>
-	<body>
+<body>
+	<!-- style="background-color: #86d4ee" -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+			  <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+			  <a class="navbar-brand" href="#">
+			    <img src="/assets/images/logo-white.svg" width="330" height="auto" alt="">
+			  </a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			    <ul id="nav-options" class="navbar-nav mr-auto">
+			      <li class="nav-item active">
+			        <a class="nav-link" href="../main.html">Home <span class="sr-only">(current)</span></a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="../artist.html">Artist</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="../catalog.html">Catalog</a>
+			      </li>
+			    </ul>
+			    
+			  </div>
+		</div>
+	</nav>
+
+			
+	
+	{{{ body }}}
+
 		
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<div class="container">
-				  <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-				  <a class="navbar-brand" href="#">
-				    <img src="../assets/images/logo.png" width="330" height="auto" alt="Portico Logo">
-				  </a>
-				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				    <span class="navbar-toggler-icon"></span>
-				  </button>
 
-				  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-				    <ul class="navbar-nav mr-auto">
-				      <li class="nav-item active">
-				        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-				      </li>
-				      <li class="nav-item">
-				        <a class="nav-link" href="#">Artist</a>
-				      </li>
-				      <li class="nav-item">
-				        <a class="nav-link" href="#">Catalog</a>
-				      </li>
-				    </ul>
-				    
-				  </div>
-			</div>
-		</nav>
 
-			{{{ body }}}
+	<nav class="navbar fixed-bottom navbar-dark bg-dark">
+		<div class="container text-center">
+			<p class="text-muted credit text-center">xyz</p>
+		</div>
+  		
+	</nav>
 
-	</body>
+
+</body>
 </html>

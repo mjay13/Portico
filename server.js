@@ -25,8 +25,8 @@ app.set("view engine", "handlebars");
 
 
 // Import routes and give the server access to them.
-//require("./controllers/artist_routes.js")(app);
-//require("./controllers/item_routes.js")(app);
+// require("./controllers/artist_controller.js")(app);
+require("./controllers/item_controller.js")(app);
 
 
 
