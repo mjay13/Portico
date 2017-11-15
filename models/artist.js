@@ -57,12 +57,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         // // phone
         phone: {
-            type: DataTypes.INTEGER,
-            validate: {
-                not: ["[a-z]", 'i'],
-                // len: [10]
-               
-            }
+            type: DataTypes.STRING,
         },
         // // email
         email: {
