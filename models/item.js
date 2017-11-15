@@ -3,11 +3,11 @@ module.exports = function(sequelize, DataTypes) {
     // new item
     var item = sequelize.define("item", {
         // artist item is assigned to (linked  ex. 123)
-        artist_id_assignment: {
-            associate: function(models) {
-                item.belongsTo(artist, { foreignKey: 'reference_number' }); //targetKey: 'isoCode'
-            },
-        },
+        // artist_id_assignment: {
+        //     associate: function(models) {
+        //         item.belongsTo(models.artist, { foreignKey: 'reference_number' }); //targetKey: 'isoCode'
+        //     },
+        // },
         // ### number for item to assign with artist number (123-001)*
         reference_number: {
             // belongs to artist
@@ -25,9 +25,9 @@ module.exports = function(sequelize, DataTypes) {
         },
         // brief description (optional)
         description: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING
         },
-        // quantity* (0 accepted)
+        // // quantity* (0 accepted)
         quantity: {
             type: DataTypes.INTEGER,
             validate: {
@@ -36,24 +36,32 @@ module.exports = function(sequelize, DataTypes) {
                 notNull: true
             }
         },
-        // retail price* 
+        // // retail price* 
         retail_price: {
             type: DataTypes.DECIMAL(10, 2),
             validate: {
-                not: ["[a-z]", 'i'],
+                not: ["[a-z]", 'i']
             }
         },
-        // default
-        //      active
+        // // default
+        // //      active
         status: {
             // active: true
             type: DataTypes.BOOLEAN,
             defaultValue: true
         },
-        //      date last updated (timestamp)
+        // //      date last updated (timestamp)
         date_last_updated: {
             type: DataTypes.DATE
         }
     });
+
+    // artist item is assigned to (linked  ex. 123)
+
+    item.associate = function(models) {
+        item.belongsTo(models.artist, { foreignKey: 'reference_number' }); //targetKey: 'isoCode'
+    };
+
     return item;
+
 };

@@ -1,6 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-var router = express.Router();
+//var router = express.Router();
 
 var app = express();
 var port = process.env.PORT || 3000;
@@ -25,11 +25,9 @@ app.set("view engine", "handlebars");
 
 
 // Import routes and give the server access to them.
-require("./controllers/artist_routes.js")(app);
-require("./controllers/item_routes")(app);
-//require("./controllers/keyword_routes"); may not use
+//require("./controllers/artist_routes.js")(app);
+//require("./controllers/item_routes.js")(app);
 
-// ??? app.use("/", routes);
 
 
 // Listen on port 3000.
