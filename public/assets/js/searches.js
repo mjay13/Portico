@@ -8,26 +8,24 @@ $(document).ready(function() {
 
 
 
-    function itemsByArtist() {
-        $.get("/catalog/item/by-artist/:artistref")
+    function itemsByArtist(event) {
+        event.preventDefault();
         console.log("btn clicked");
-        window.location.href = "/catalog/item/by-artist/" + id; 
-    }
+        id = $("#num-input").val().trim();
+        console.log(id);
 
-        // id = $("#search-bar");
-
-        // $.ajax({
-        //     method: "GET",
-        //     url: "/catalog/item/byartist/" + id
-        // });
+        $.ajax({
+            method: "GET",
+            url: "/catalog/item/by-artist/" + id
+        }).done(window.location.href = "/catalog/item/by-artist/" + id);
 
     }
 
     function allItems() {
-       $.get("/catalog/all-items");
-       console.log("btn clicked");
-       // pulled this from in-class activity 11.04.2017 15.3 cms.js
-       window.location.href = "/catalog/all-items"; 
+        $.get("/catalog/all-items");
+        console.log("btn clicked");
+        // pulled this from in-class activity 11.04.2017 15.3 cms.js
+        window.location.href = "/catalog/all-items";
     }
 
 
@@ -43,7 +41,6 @@ $(document).ready(function() {
 
 
 
+    // end of document.ready
 
-
-// end of document.ready
 });

@@ -5,7 +5,9 @@
 				<!-- <h6>View Existing Artist</h6> -->
 			    <form action="/catalog/item/by-artist/" method="GET">
 				    <div class="input-group">
-				      <input type="text" class="form-control" name="artist_reference_number" value="{{this.artistId}}" placeholder="Search by Artist Number" aria-label="Search">
+
+				      <input id="num-input" type="text" class="form-control" name="artist_reference_number" value="{{this.item.id}}" placeholder="Search by Artist Number" aria-label="Search">
+
 				      <span class="input-group-btn">
 				        <button id="text-enter-button" class="btn btn-secondary" type="submit">Go!</button>
 				      </span>

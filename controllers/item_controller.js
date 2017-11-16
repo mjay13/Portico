@@ -32,22 +32,6 @@ module.exports = function(app) {
             });
     });
 
-    // get for item by reference number (not including the artist ref num)
-    app.get("/catalog/item/:itemref", function(req, res) {
-
-        db.item.findAll({
-                where: {
-                    item_reference_number: req.params.itemref
-                }
-            })
-            .then(function(dbItem) {
-
-                var hbsObject = {
-                    item: dbItem
-                };
-                return res.render("catalog", hbsObject);
-            });
-    });
     // get all items with the same artist
     app.get("/catalog/item/by-artist/:artistref", function(req, res) {
 
@@ -71,6 +55,24 @@ module.exports = function(app) {
                     });
             });
     });
+
+    // get for item by reference number (not including the artist ref num)
+    app.get("/catalog/item/:itemref", function(req, res) {
+
+        db.item.findAll({
+                where: {
+                    item_reference_number: req.params.itemref
+                }
+            })
+            .then(function(dbItem) {
+
+                var hbsObject = {
+                    item: dbItem
+                };
+                return res.render("catalog", hbsObject);
+            });
+    });
+   
 
 
     app.put("/item/update/:id", function(req, res) {
