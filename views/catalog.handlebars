@@ -5,17 +5,19 @@
 				<!-- <h6>View Existing Artist</h6> -->
 			    <form action="/catalog/item/by-artist/" method="GET">
 				    <div class="input-group">
-				      <input type="text" class="form-control" name="artist_reference_number" value="{{this.artist_reference_number}}" placeholder="Search by Artist Number" aria-label="Search">
+				      <input type="text" class="form-control" name="artist_reference_number" value="{{this.item.id}}" placeholder="Search by Artist Number" aria-label="Search">
 				      <span class="input-group-btn">
 				        <button id="text-enter-button" class="btn btn-secondary" type="submit">Go!</button>
 				      </span>
 				    </div>
 				</form>
 			</div>
-
-			<div id="show-all-items" class="col-lg-6 text-right">
-				<button type="button" class="btn btn-danger btn-block" >SHOW ALL ITEMS</button>
-			</div>
+			
+			 
+				<div id="show-all-items" class="col-lg-6 text-right">
+					<button action="/catalog/all-items" method="GET" type="button" class="btn btn-danger btn-block">SHOW ALL ITEMS</button>
+				</div>
+			 </form>
 		</div>	
 		<hr>
 	
@@ -59,42 +61,47 @@
 	</div>
 
 <script type="text/javascript">
-	window.onload = function() {
-		$("tr").hide();
-	};
+	
+	// $("#show-all-items").on("click", function(e){
+	// 	e.preventDefault();
+	// 	console.log("I've been clicked");
 
-	$("#show-all-items").on("click", function(){
-		$("tr").show();
-	});
+	// // 	$.get("/catalog/all-items", function(data) {
 
-	$(document).ready(function() {
+	// // 		if (data.length !== 0) {
 
+	// // 		    for (var i = 0; i < data.length; i++) {
 
+	// // 		      var newTD = $("<tr>");
+	// // 		      // row.addClass("chirp");
 
-		$(document).on("click", "#search-bar", getItems);
-		// $('#table-rows').empty();
-			event.preventDefault();
+	// // 		      newTD.append("<td>" + data[i].item_reference_number + "</td>");
+	// // 		      newTD.append("<td>" + data[i].title + "</td>");
+	// // 		      newTD.append("<td>" + data[i].description + "</td>");
 
-			// function createItemRow(itemData) {
-			//     var newTr = $("<tr>");
-			//     newTr.data("author", itemData);
-			//     newTr.append("<td>" + itemData.name + "</td>");
-			//     newTr.append("<td> " + authorData.Posts.length + "</td>");
-			//     newTr.append("<td><a href='/blog?author_id=" + authorData.id + "'>Go to Posts</a></td>");
-			//     newTr.append("<td><a href='/cms?author_id=" + authorData.id + "'>Create a Post</a></td>");
-			//     newTr.append("<td><a style='cursor:pointer;color:red' class='delete-author'>Delete Author</a></td>");
-			//     return newTr;
-			// }
+	// // 		      $("#table-rows").append(newTD);
+	// // 		      console.log(data);
+	// // 		    }
+	// // 		}
+	// // 	});
+	// });
 
-			// function getItems() {
-			//     $.get("/catalog/item/by-artist/:artistref", function(data) {
-			// 		var rowsToAdd = [];
-			//       for (var i = 0; i < data.length; i++) {
-			//         rowsToAdd.push(createAuthorRow(data[i]));
-			//       }
-			//       renderAuthorList(rowsToAdd);
-			//       nameInput.val("");
-			//     });
-			// }
-	});
+	// function createItemRow(itemData) {
+	//     console.log(itemData);
+	//     var newTr = $("table-rows");
+	//     // newTr.data("author", itemData);
+	//     newTr.data("<td> ghedrtyerhtsw </td>");
+
+	//     return newTr;
+	// }
+
+	// window.onload = function() {
+	// 	$("tr").hide();
+	// };
+
+	// $("#show-all-items").on("click", function(){
+	// 	$("tr").show();
+	// });
+
+	
 </script>
