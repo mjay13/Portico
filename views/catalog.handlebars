@@ -4,15 +4,15 @@
 			<div id="search-bar" class="col-lg-6">
 				<!-- <h6>View Existing Artist</h6> -->
 			    <div class="input-group">
-			      <input type="text" class="form-control" placeholder="Search by Artist Number" aria-label="Search">
+			      <input type="text" class="form-control" id="num-input" placeholder="Search by Artist Number" aria-label="Search">
 			      <span class="input-group-btn">
-			        <button class="btn btn-secondary" type="button">Go!</button>
+			        <button id="text-enter-button" class="btn btn-secondary" type="button">Go!</button>
 			      </span>
 			    </div>
 			</div>
 
 			<div id="show-all-items" class="col-lg-6 text-right">
-				<button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#artistModal">SHOW ALL ITEMS</button>
+				<button type="button" id="all-items-btn" class="btn btn-danger btn-block" data-toggle="modal" data-target="#artistModal" href="/catalog/all-items">SHOW ALL ITEMS</button>
 			</div>
 		</div>	
 		<hr>

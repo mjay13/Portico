@@ -2,14 +2,20 @@ var db = require("../models");
 
 
 module.exports = function(app) {
-    // get route -> index
+
     app.get("/", function(req, res) {
-        // send us to the next get function instead.
+
         res.render("index");
     });
 
-    // get for all items in ascending order
     app.get("/catalog", function(req, res) {
+
+        res.render("catalog");
+
+    });
+
+    // get for all items in ascending order
+    app.get("/catalog/all-items", function(req, res) {
 
         db.item.findAll({
 
