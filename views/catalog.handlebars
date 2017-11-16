@@ -3,16 +3,18 @@
 			
 			<div id="search-bar" class="col-lg-6">
 				<!-- <h6>View Existing Artist</h6> -->
-			    <div class="input-group">
-			      <input type="text" class="form-control" placeholder="Search by Artist Number" aria-label="Search">
-			      <span class="input-group-btn">
-			        <button class="btn btn-secondary" type="button">Go!</button>
-			      </span>
-			    </div>
+			    <form action="/catalog/item/by-artist/" method="GET">
+				    <div class="input-group">
+				      <input type="text" class="form-control" name="artist_reference_number" value="{{this.artist_reference_number}}" placeholder="Search by Artist Number" aria-label="Search">
+				      <span class="input-group-btn">
+				        <button id="text-enter-button" class="btn btn-secondary" type="submit">Go!</button>
+				      </span>
+				    </div>
+				</form>
 			</div>
 
 			<div id="show-all-items" class="col-lg-6 text-right">
-				<button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#artistModal">SHOW ALL ITEMS</button>
+				<button type="button" class="btn btn-danger btn-block" >SHOW ALL ITEMS</button>
 			</div>
 		</div>	
 		<hr>
@@ -37,7 +39,7 @@
 							</thead>
 							<tbody>
 							    {{#each item}}
-								    <tr>
+								    <tr id="table-rows">
 								      <td>{{this.item_reference_number}}</td>
 								      <td>{{this.title}}</td>
 								      <td>{{this.description}}</td>
@@ -54,8 +56,45 @@
 				</div>
   			</div>
 		</div>
-			
-			
+	</div>
+
+<script type="text/javascript">
+	window.onload = function() {
+		$("tr").hide();
+	};
+
+	$("#show-all-items").on("click", function(){
+		$("tr").show();
+	});
+
+	$(document).ready(function() {
 
 
-		</div>
+
+		$(document).on("click", "#search-bar", getItems);
+		// $('#table-rows').empty();
+			event.preventDefault();
+
+			// function createItemRow(itemData) {
+			//     var newTr = $("<tr>");
+			//     newTr.data("author", itemData);
+			//     newTr.append("<td>" + itemData.name + "</td>");
+			//     newTr.append("<td> " + authorData.Posts.length + "</td>");
+			//     newTr.append("<td><a href='/blog?author_id=" + authorData.id + "'>Go to Posts</a></td>");
+			//     newTr.append("<td><a href='/cms?author_id=" + authorData.id + "'>Create a Post</a></td>");
+			//     newTr.append("<td><a style='cursor:pointer;color:red' class='delete-author'>Delete Author</a></td>");
+			//     return newTr;
+			// }
+
+			// function getItems() {
+			//     $.get("/catalog/item/by-artist/:artistref", function(data) {
+			// 		var rowsToAdd = [];
+			//       for (var i = 0; i < data.length; i++) {
+			//         rowsToAdd.push(createAuthorRow(data[i]));
+			//       }
+			//       renderAuthorList(rowsToAdd);
+			//       nameInput.val("");
+			//     });
+			// }
+	});
+</script>
