@@ -1,0 +1,135 @@
+body {
+	background-image: url("../images/shl.png");
+	background-repeat: repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	/*padding-bottom: 15rem;*/
+	height: 100%;
+}
+
+#main-container {
+	background-color: #e7e7e7;
+	padding-bottom: 10rem;
+	box-shadow: 0px 0px 10px #9a9a9a;
+}
+
+#homepage-card {
+	margin-top: 8rem;
+	box-shadow: 0px 5px 10px #9a9a9a;
+	border: none;
+}
+
+#homepage-card.card-body {
+	margin-top: 5%;
+	/*padding: 0px;*/
+}
+
+#homepage-card.card {
+	padding: 0px;
+	/*box-shadow: 5px 5px 10px #9a9a9a;*/
+}
+
+#catalog-login, #artist-login {
+	min-width: 85px;
+	border-radius: 0px;
+}
+
+#artist-login {
+	margin-top: 5rem;
+}
+
+#artist-profile {
+	margin-top: 5rem;
+	position: relative;
+	z-index: 1;
+}
+
+#profile-pic {
+	position: relative;
+	z-index: 10;
+	top: -6rem;
+	box-shadow: 0px 0px 10px #9a9a9a;
+	margin-bottom: -4rem;
+}
+
+#items-list {
+	margin-top: 5rem;
+}
+
+#items-list.card-header {
+	background-color: tomato;
+}
+
+#artist-item {
+	margin: 1rem 0rem 1rem 0rem;
+}
+
+#search-bar {
+	margin-top: 1rem;
+	border-radius: 0;
+}
+
+#add-new-artist, #show-all-items {
+	margin-top: 1rem;
+	border-radius: 0;
+}
+
+.credit {
+	text-align: center;
+	margin: 0 auto;
+}
+
+#footer {
+	margin-top: 15rem;
+	/*min-height: 15rem;*/
+}
+/*.btn-block+.btn-block {
+	margin-top: 0px;
+}*/
+
+/*.fa {
+	color: tomato;
+}*/
+
+/*#artist-info {
+	position: relative;
+	top:-3rem;
+}*/
+
+/*#artist-profile.card-title {
+	position: relative;
+	top: -6rem;
+}*/
+
+/*#home-container {
+	background-image: url("../images/parchment.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	padding-bottom: 10rem;
+	height: 100vh;
+}*/
+/*#home-container {
+	background-image: url("../images/venus.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;
+	padding-bottom: 10rem;
+	height: 100vh;
+}*/
+
+/*body {
+	background-image: url("../images/background2.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;
+	padding-bottom: 15rem;
+	height: 100%;
+}*/
+
+/*body, html {
+	height:100%;
+}
+*/

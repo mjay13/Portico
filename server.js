@@ -1,14 +1,20 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-
-var port = process.env.PORT || 3000;
+//var router = express.Router();
 
 var app = express();
+var port = process.env.PORT || 3000;
+
+db = require("./models");
 
 // Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static("public"));
+app.use(express.static("./public"));
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({type: "application/vdn.api+json"}));
+
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
@@ -16,11 +22,22 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+
+
 // Import routes and give the server access to them.
-var A_routes = require("./artist_routes.js");
-var I_routes = require("./item_routes.js");
-var K_routes = require("./keyword_routes.js");
+require("./controllers/artist_controller.js")(app);
+require("./controllers/item_controller.js")(app);
 
-app.use("/", routes);
 
-app.listen(port);
+
+// Listen on port 3000.
+db.sequelize.sync({force: true}).then(function() {
+  require("./seeds_artist.js");
+  require("./seeds_item.js");
+
+  app.listen(port, function (err, restults){
+  	if (err) throw err;
+  	console.log("Express on :3000 is a go!");
+  });
+});
+

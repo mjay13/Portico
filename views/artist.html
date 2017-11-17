@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Portico</title>
+
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<!-- Bootstrap Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+	<!-- Font Awesome -->
+	<script src="https://use.fontawesome.com/0fa43fcb64.js"></script>
+
+	<!-- My Custom CSS -->
+	<link rel="stylesheet" href="../public/assets/css/style.css" type="text/css" />
+
+</head>
+<body>
+	
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+			  <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+			  <a class="navbar-brand" href="#">
+			    <img src="../public/assets/images/logo-white.svg" width="330" height="auto" alt="">
+			  </a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			    <ul class="navbar-nav mr-auto">
+			      <li class="nav-item">
+			        <a class="nav-link" href="layouts/main.html">Home</a>
+			      </li>
+			      <li class="nav-item active">
+			        <a class="nav-link" href="../artist.html">Artist</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="../catalog.html">Catalog</a>
+			      </li>
+			    </ul>
+			    
+			  </div>
+		</div>
+	</nav>
+<!-- ============================================================================================ -->
+
+	<!-- Modal -->
+	<div class="modal fade" id="artistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="artistModalTitle">{{Artist Name}}</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        {{<ul class="list-group">
+			  <li class="list-group-item">Cras justo odio</li>
+			  <li class="list-group-item">Dapibus ac facilisis in</li>
+			  <li class="list-group-item">Morbi leo risus</li>
+			  <li class="list-group-item">Porta ac consectetur ac</li>
+			  <li class="list-group-item">Vestibulum at eros</li>
+			</ul>}}
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Save changes</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+<!-- ==========================================================================================	 -->
+	<div id="main-container" class="container">
+		<div class="row">
+			
+			<div id="search-bar" class="col-lg-6">
+				<!-- <h6>View Existing Artist</h6> -->
+			    <div class="input-group">
+			      <input type="text" class="form-control" placeholder="Search by Artist Number" aria-label="Search">
+			      <span class="input-group-btn">
+			        <button class="btn btn-secondary" type="button">Go!</button>
+			      </span>
+			    </div>
+			</div>
+
+			<div id="add-new-artist" class="col-lg-6 text-right">
+				<button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#artistModal">ADD NEW ARTIST</button>
+			</div>
+		</div>	
+		<hr>
+	
+<!-- =============================================================================================== -->
+		<div class="row"> 
+			<div class="col-lg-4">
+				<div id="artist-profile" class="card">
+					<div class="text-center">
+						<img class="card-img-top" src="../public/assets/images/profile-background4.jpg" alt="Card image cap">
+						<div class="card-body">
+						  	<img id="profile-pic" src="../public/assets/images/profile-pic.png" alt="..." class="rounded-circle img-thumbnail" width="140px">
+								<h4 id="artist-card-title">{{Artist Name}}</h4>
+								<!-- <hr> -->
+								<ul class="list-group list-group-flush">
+								    <li class="list-group-item text-left">{{ID Number: }}</li>
+								    <li class="list-group-item text-left">{{Item Count: }}</li>
+								</ul>
+							<button type="button" id="artist-login" class="btn btn-warning btn-lg btn-block" data-toggle="modal" data-target="#artistModal">Full Profile</button>
+					  	</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- <div class="col-lg-1"></div> -->
+			<div class="col-lg-8">
+				<div class="card" id="items-list">
+					<div class="card-header bg-dark text-white"><h3>Items</h3></div>
+					<div class="card-body">
+						<div class="text-right"><i id="list-view" class="fa fa-list fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<i id="grid-view" class="fa fa-th fa-2x" aria-hidden="true"></i></div>
+						<div class="row"> 
+							<div id="artist-item" class="col-lg-4">
+							    <div class="card">
+							      <div class="card-header text-info text-right"><h5>{{Price}}</h5></div>
+							      <div class="card-body">
+							        <h5 class="card-title">{{Item Name}}</h5>
+							        <h6 class="card-subtitle mb-2 text-muted">{{Quantity: }} </h6>
+							        <br>
+							        <button type="button" class="btn btn-block btn-sm" data-toggle="modal" data-target="#artistModal">Details</button>
+							      </div>
+							    </div>
+							</div>
+							<div id="artist-item" class="col-lg-4">
+							    <div class="card">
+							      <div class="card-header text-info text-right"><h5>$10.99</h5></div>
+							      <div class="card-body">
+							        <h5 class="card-title">Ceramic Coffee Mug</h5>
+							        <h6 class="card-subtitle mb-2 text-muted">Quantity: 2 </h6>
+							        <br>
+							        <a href="#" class="card-link">Details</a>
+							      </div>
+							    </div>
+							</div>
+							<div id="artist-item" class="col-lg-4">
+							    <div class="card">
+							      <div class="card-header text-info text-right"><h5>$10.99</h5></div>
+							      <div class="card-body">
+							        <h5 class="card-title">Ceramic Coffee Mug</h5>
+							        <h6 class="card-subtitle mb-2 text-muted">Quantity: 2 </h6>
+							        <br>
+							        <a href="#" class="card-link">Details</a>
+							      </div>
+							    </div>
+							</div>
+							<div id="artist-item" class="col-lg-4">
+							    <div class="card">
+							      <div class="card-header text-info text-right"><h5>$10.99</h5></div>
+							      <div class="card-body">
+							        <h5 class="card-title">Ceramic Coffee Mug</h5>
+							        <h6 class="card-subtitle mb-2 text-muted">Quantity: 2 </h6>
+							        <br>
+							        <a href="#" class="card-link">Details</a>
+							      </div>
+							    </div>
+							</div>
+						</div>
+					</div>
+				</div>
+  			</div>
+		</div>
+	</div>
+
+			
+		
+			
+
+	
+<!-- <script type="text/javascript">
+	window.onload = function() {
+	$("#artist-profile").hide();
+	$("#items-list").hide();
+	};
+
+</script> -->
+
+
+</body>
+</html>

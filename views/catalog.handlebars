@@ -1,0 +1,109 @@
+	<div id="main-container" class="container">
+		<div class="row">
+			
+			<div id="search-bar" class="col-lg-6">
+				<!-- <h6>View Existing Artist</h6> -->
+			    <form action="/catalog/item/by-artist/" method="GET">
+				    <div class="input-group">
+
+				      <input id="num-input" type="text" class="form-control" name="artist_reference_number" value="{{this.item.id}}" placeholder="Search by Artist Number" aria-label="Search">
+
+				      <span class="input-group-btn">
+				        <button id="text-enter-button" class="btn btn-secondary" type="submit">Go!</button>
+				      </span>
+				    </div>
+				</form>
+			</div>
+			
+			 
+				<div id="show-all-items" class="col-lg-6 text-right">
+					<button action="/catalog/all-items" method="GET" type="button" class="btn btn-danger btn-block">SHOW ALL ITEMS</button>
+				</div>
+			 </form>
+		</div>	
+		<hr>
+	
+<!-- =============================================================================================== -->
+		<div class="row"> 
+			<div class="col-lg-12">
+				<div id="catalog" class="card">
+					<div class="card-header bg-dark text-white"><h3>Catalog</h3></div>
+					<div class="card-body">
+						<table class="table table-striped">
+							<thead class="thead-dark">
+							    <tr>
+							      <th scope="col">ID</th>
+							      <th scope="col">Title</th>
+							      <th scope="col">Description</th>
+							      <th scope="col">Quantity</th>
+							      <th scope="col">Retail Price</th>
+							      <th scope="col">Last Updated</th>
+							      <th scope="col">Status</th>
+							    </tr>
+							</thead>
+							<tbody>
+							    {{#each item}}
+								    <tr id="table-rows">
+								      <td>{{this.item_reference_number}}</td>
+								      <td>{{this.title}}</td>
+								      <td>{{this.description}}</td>
+								      <td>{{this.quantity}}</td>
+								      <td>{{this.retail_price}}</td>
+								      <td>{{this.updatedAt}}</td>
+								      <td>{{this.status}}</td>
+								    </tr>
+								{{/each}}
+							   </tbody>
+						</table>
+
+					</div>
+				</div>
+  			</div>
+		</div>
+	</div>
+
+<script type="text/javascript">
+	
+	// $("#show-all-items").on("click", function(e){
+	// 	e.preventDefault();
+	// 	console.log("I've been clicked");
+
+	// // 	$.get("/catalog/all-items", function(data) {
+
+	// // 		if (data.length !== 0) {
+
+	// // 		    for (var i = 0; i < data.length; i++) {
+
+	// // 		      var newTD = $("<tr>");
+	// // 		      // row.addClass("chirp");
+
+	// // 		      newTD.append("<td>" + data[i].item_reference_number + "</td>");
+	// // 		      newTD.append("<td>" + data[i].title + "</td>");
+	// // 		      newTD.append("<td>" + data[i].description + "</td>");
+
+	// // 		      $("#table-rows").append(newTD);
+	// // 		      console.log(data);
+	// // 		    }
+	// // 		}
+	// // 	});
+	// });
+
+	// function createItemRow(itemData) {
+	//     console.log(itemData);
+	//     var newTr = $("table-rows");
+	//     // newTr.data("author", itemData);
+	//     newTr.data("<td> ghedrtyerhtsw </td>");
+
+	//     return newTr;
+	// }
+
+	// window.onload = function() {
+	// 	$("tr").hide();
+	// };
+
+	// $("#show-all-items").on("click", function(){
+	// 	$("tr").show();
+	// });
+
+	
+</script>
