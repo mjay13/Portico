@@ -31,7 +31,7 @@ require("./controllers/item_controller.js")(app);
 
 
 // Listen on port 3000.
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force: false }).then(function() {
     require("./seeds_artist.js");
     require("./seeds_item.js");
 

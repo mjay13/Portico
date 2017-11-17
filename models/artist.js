@@ -28,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
         // // street address
         address_street: {
             type: DataTypes.STRING,
-            allowNull: false
+            //allowNull: false
         },
         // // city
         address_city: {

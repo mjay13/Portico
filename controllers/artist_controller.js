@@ -43,17 +43,18 @@ module.exports = function(app) {
     // creates a new artist 
     app.post("/artist/create", function(req, res) {
         db.artist.create({
-                // artist_reference_number: req.body.artistId,
-                // name_first: req.body.nameFirst,
-                // name_last: req.body.nameLast,
-                // address_street: req.body.streetAddress,
-                // address_city: req.body.inputCity,
-                // address_state: req.body.state,
-                // address_zipcode: req.body.inputZip,
-                // phone: req.body.inputPhone,
-                // payable_to: req.body.payableTo,
-                // consignment_percentage: req.body.consignmentPercent,
-                // date_contract: req.body.dateContract
+                
+                artist_reference_number: req.body.artist_reference_number,
+                name_first: req.body.name_first,
+                name_last: req.body.name_last,
+                address_street: req.body.address_street,
+                address_city: req.body.address_city,
+                address_state: req.body.address_state,
+                address_zipcode: req.body.address_zipcode,
+                phone: req.body.phone,
+                payable_to: req.body.payable_to,
+                consignment_percentage: req.body.consignment_percentage,
+                date_contract: req.body.date_contract
                 
             })
             // pass the result of our call
