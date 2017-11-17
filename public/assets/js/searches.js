@@ -5,6 +5,7 @@ $(document).ready(function() {
     // the page will redirect and load within the catalouge section
     $(document).on("click", "#text-enter-button", itemsByArtist);
     $(document).on("click", "#show-all-items", allItems);
+    $(document).on("click", "#ref-enter-button", byArtistRef);
 
 
 
@@ -29,7 +30,18 @@ $(document).ready(function() {
     }
 
 
+    function byArtistRef(event) {
+        event.preventDefault();
+        console.log("btn clicked");
+        id = $("#ref-input").val().trim();
+        console.log(id);
 
+        $.ajax({
+            method: "GET",
+            url: "/artist/ref-num/" + id
+        }).done(window.location.href = "/artist/ref-num/" + id);
+
+    }
 
 
 
