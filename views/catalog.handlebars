@@ -88,8 +88,8 @@
 								      <td>{{this.retail_price}}</td>
 								      <td>{{this.updatedAt}}</td>
 								      <td>{{this.status}}</td>
-								      <td> <button button type="button" id="itemEdit" class="btn btn-info btn-block" data-id="{{id}}" data-toggle="modal" data-target="#editItemModal">Edit</button>
-								      <button button type="button" id="itemDelete" class="btn btn-dark btn-block" data-id="{{id}}">Archive</button>
+								      <td> <button button type="button" id="itemEdit" class="btn btn-info btn-block" data-id="{{item.id}}" data-toggle="modal" data-target="#editItemModal">Edit</button>
+								      <button button type="button" id="item-archive" class="btn btn-dark btn-block" data-id="{{this.id}}">Archive</button>
 								      </td>
 								    </tr>
 								{{/each}}

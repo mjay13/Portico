@@ -14,6 +14,22 @@ module.exports = function(app) {
 
     });
 
+    app.put("/catalog/item/archive", function(req, res) {
+        
+        db.item.update({
+            status: false
+        }, {
+            where: {
+                id: res.body.id
+            }
+        }).then(function(dbItem) {
+            var hbsObject = {
+               item: dbItem
+            };
+            return res.render("catalog", hbsObject);
+        });
+    });
+
     // get for all items in ascending order
     app.get("/catalog/all-items", function(req, res) {
 
@@ -74,6 +90,21 @@ module.exports = function(app) {
     });
 
 
+    // app.put("/catalog/item/archive", function(req, res) {
+        
+    //     db.item.update({
+    //         status: false
+    //     }, {
+    //         where: {
+    //             id: res.body.id
+    //         }
+    //     }).then(function(dbItem) {
+    //         var hbsObject = {
+    //            item: dbItem
+    //         };
+    //         return res.render("catalog", hbsObject);
+    //     });
+    // });
 
     app.put("/item/update/:id", function(req, res) {
         db.item.update({
