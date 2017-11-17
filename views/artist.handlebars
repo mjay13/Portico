@@ -1,3 +1,4 @@
+
 	<!-- Modal -->
 	{{#each artist}}
 	<div class="modal fade" id="artistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -97,19 +98,18 @@
 	</div>
 	
 
-<!-- ==========================================================================================	 -->
-	<div id="main-container" class="container">
-		<div class="row">
-			
-			<div id="search-bar" class="col-lg-6">
-				<!-- <h6>View Existing Artist</h6> -->
-			    <div class="input-group">
-			      
-			      <input id="ref-input" value="{{this.artist.artist_reference_number}}" type="text" class="form-control" placeholder="Search by Artist Number" aria-label="Search">
 
-			      <span class="input-group-btn">
+<!-- ==========================================================================================	 -->
+<div id="main-container" class="container">
+    <div class="row">
+        <div id="search-bar" class="col-lg-6">
+            <!-- <h6>View Existing Artist</h6> -->
+            <div class="input-group">
+                <input id="ref-input" value="{{this.artist.artist_reference_number}}" type="text" class="form-control" placeholder="Search by Artist Number" aria-label="Search">
+                <span class="input-group-btn">
 			        <button id="ref-enter-button" class="btn btn-secondary" type="button">Go!</button>
 			      </span>
+
 			    </div>
 			</div>
 
@@ -171,6 +171,7 @@
   			</div>
 		</div>
 	</div>
+
 <!-- 
 <script type="text/javascript">
 	window.onload = function() {

@@ -13,7 +13,7 @@ app.use(express.static("./public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
-app.use(bodyParser.json({type: "application/vdn.api+json"}));
+app.use(bodyParser.json({ type: "application/vdn.api+json" }));
 
 
 // Set Handlebars.
@@ -31,13 +31,12 @@ require("./controllers/item_controller.js")(app);
 
 
 // Listen on port 3000.
-db.sequelize.sync({force: true}).then(function() {
-  require("./seeds_artist.js");
-  require("./seeds_item.js");
+db.sequelize.sync({ force: true }).then(function() {
+    require("./seeds_artist.js");
+    require("./seeds_item.js");
 
-  app.listen(port, function (err, restults){
-  	if (err) throw err;
-  	console.log("Express on :3000 is a go!");
-  });
+    app.listen(port, function(err, restults) {
+        if (err) throw err;
+        console.log("Express on :3000 is a go!");
+    });
 });
-
