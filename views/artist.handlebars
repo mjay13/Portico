@@ -29,7 +29,7 @@
 
 	<!-- Modal -->
 	
-	<div class="modal fade" id="artistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="newArtistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
@@ -39,17 +39,58 @@
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	        <ul class="list-group">
-			  <li class="list-group-item">Cras justo odio</li>
-			  <li class="list-group-item">Dapibus ac facilisis in</li>
-			  <li class="list-group-item">Morbi leo risus</li>
-			  <li class="list-group-item">Porta ac consectetur ac</li>
-			  <li class="list-group-item">Vestibulum at eros</li>
-			</ul>
-	      </div>
+	      	<form>
+	      	  <div class="form-group">
+			    <label class="col-form-label" for="formGroupExampleInput">Artist Reference Number</label>
+			    <input type="text" class="form-control" id="artistId" placeholder="Artist Reference Number">
+			  </div>
+			  <div class="form-group">
+			    <label class="col-form-label" for="formGroupExampleInput">First Name</label>
+			    <input type="text" class="form-control" id="nameFirst" placeholder="First Name">
+			  </div>
+			  <div class="form-group">
+			    <label class="col-form-label" for="formGroupExampleInput2">Last Name</label>
+			    <input type="text" class="form-control" id="nameLast" placeholder="Another input">
+			  </div>
+			  <div class="form-group">
+			    <label for="inputAddress">Street Address</label>
+			    <input type="text" class="form-control" id="streetAddress" placeholder="1234 Main St">
+			  </div>
+			  <div class="form-row">
+				    <div class="form-group col-md-6">
+				      <label for="inputCity">City</label>
+				      <input type="text" class="form-control" id="inputCity" placeholder="City">
+				    </div>
+				    <div class="form-group col-md-4">
+				      <label for="inputState">State</label>
+			    	  <input type="text" class="form-control" id="state" placeholder="FL">
+				    </div>
+				    <div class="form-group col-md-2">
+				      <label for="inputZip">Zip</label>
+				      <input type="text" class="form-control" id="inputZip" placeholder="12345">
+				    </div>
+			  </div>
+			  <div class="form-group">
+			    <label class="col-form-label" for="formGroupExampleInput3">Phone</label>
+			    <input type="text" class="form-control" id="inputPhone" placeholder="1112223333">
+			  </div>
+			  <div class="form-group">
+			    <label class="col-form-label" for="formGroupExampleInput4">Payable To</label>
+			    <input type="text" class="form-control" id="payableTo" placeholder="Payable to">
+			  </div>
+			  <div class="form-group">
+			    <label class="col-form-label" for="formGroupExampleInput5">Consigment Percentage</label>
+			    <input type="text" class="form-control" id="consignmentPercent" placeholder="consignment Percent">
+			  </div>
+			  <div class="form-group">
+			    <label class="col-form-label" for="formGroupExampleInput6">Contract Date</label>
+			    <input type="text" class="form-control" id="dateContract" placeholder="Date of Contract">
+			  </div>
+			</form>
+		 </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save changes</button>
+	        <button id="newArtistSubmit" type="submit" class="btn btn-primary">Save changes</button>
 	      </div>
 	    </div>
 	  </div>
@@ -74,7 +115,7 @@
 
 			<div id="add-new-artist" class="col-lg-6 text-right">
 				<button type="button" class="btn btn-danger btn-block" method
-				 data-toggle="modal" data-target="#artistModal">ADD NEW ARTIST</button>
+				 data-toggle="modal" data-target="#newArtistModal">ADD NEW ARTIST</button>
 			</div>
 		</div>	
 		<hr>
