@@ -13,7 +13,7 @@ $(document).ready(function() {
     // artist page, create new artist
     $(document).on("click", "#newArtistSubmit", artistCreate);
     // post for a new artist
-    $(document).on("click", "#", postArtist);
+    // $(document).on("click", "#", postArtist);
 
 
 
