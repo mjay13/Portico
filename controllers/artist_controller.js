@@ -6,9 +6,7 @@ module.exports = function(app) {
     // get one artist via reference number
     app.get("/artist/ref-num/:id", function(req, res) {
 
-        if (req.params.id) {
-
-            db.artist.findOne({
+            db.artist.findAll({
                 where: {
                     artist_reference_number: req.params.id
                 }
@@ -18,20 +16,9 @@ module.exports = function(app) {
                     artist: ref_num
                 };
                 return res.render("artist", hbsObject);
-            });
-        }
-
-        // Otherwise...
-        else {
-            // error message instead?
-            artist.findAll({
-
-                })
-                .then(function(result) {
-                    return res.json(result);
-                });
-        }
+            });       
     });
+
     // get all artists with consignment percentage of the param
     app.get("/artist/percentage/:percentage", function(req, res) {
         db.artist.findAll({
@@ -44,7 +31,6 @@ module.exports = function(app) {
                     ["artist_reference_number", "ASC"]
                 ]
             })
-            // use promise method to pass the burgers...
             .then(function(dbArtist) {
                 // into the main index, updating the page
                 var hbsObject = {
@@ -54,8 +40,7 @@ module.exports = function(app) {
             });
     });
 
-
-    // creates a new artist
+    // creates a new artist 
     app.post("/artist/create", function(req, res) {
         db.artist.create({
                 // artist_reference_number: 391,
@@ -78,7 +63,8 @@ module.exports = function(app) {
                 res.redirect("/artist");
             });
     });
-    // updates an existing artist
+
+    // updates an existing artist maybe update/:id
     app.put("/artist/update", function(req, res) {
         db.artist.update({
                 // name_last: req.body.name_last
@@ -105,8 +91,7 @@ module.exports = function(app) {
             });
     });
 
-
-    // get all artists in ascending order
+    // get all artists in ascending order on load of main artist page
     app.get("/artist", function(req, res) {
         db.artist.findAll({
                 order: [
@@ -122,6 +107,10 @@ module.exports = function(app) {
             });
     });
 
-    // end of export
+    // // load page
+    // app.get("/artist", function(req, res) {     
+    //        return res.render("artist");
+    // });
 
+    // end of export
 };
