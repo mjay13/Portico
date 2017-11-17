@@ -8,6 +8,8 @@ $(document).ready(function() {
     $(document).on("click", "#text-enter-button", itemsByArtist);
     // catalog page all items show
     $(document).on("click", "#show-all-items", allItems);
+    // catalog page, archive item - set status to inactive
+    $(document).on("click", "#item-archive", archiveItem);
     // artist page one artist show
     $(document).on("click", "#ref-enter-button", byArtistRef);
     // artist page, create new artist
@@ -36,6 +38,21 @@ $(document).ready(function() {
             method: "GET",
             url: "/catalog/item/by-artist/" + id
         }).done(window.location.href = "/catalog/item/by-artist/" + id);
+
+    }
+
+    // for catalog, archive the item - turn item inactive
+    function archiveItem(req, res) {
+        // event.preventDefault();
+        console.log("btn clicked");
+        id = $(this).attr("data-id");
+        console.log(id);
+
+        $.ajax({
+            method: "PUT",
+            url: "/catalog/item/archive"
+        }).done(window.location.href = "/catalog/all-items");
+        console.log("item archived");
 
     }
 
