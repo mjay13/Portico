@@ -72,7 +72,7 @@ module.exports = function(app) {
                 return res.render("catalog", hbsObject);
             });
     });
-   
+
 
 
     app.put("/item/update/:id", function(req, res) {

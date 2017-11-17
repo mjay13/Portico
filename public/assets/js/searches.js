@@ -10,9 +10,11 @@ $(document).ready(function() {
     $(document).on("click", "#show-all-items", allItems);
     // artist page one artist show
     $(document).on("click", "#ref-enter-button", byArtistRef);
+    // artist page, create new artist
+    $(document).on("click", "newArtistSubmit", artistCreate);
 
 
-
+    // for catalog, get all items
     function allItems() {
         $.get("/catalog/all-items");
         console.log("btn clicked");
@@ -20,7 +22,7 @@ $(document).ready(function() {
         window.location.href = "/catalog/all-items";
     }
 
-
+    // for catalog, get all items from one artist
     function itemsByArtist(event) {
         event.preventDefault();
         console.log("btn clicked");
@@ -34,6 +36,7 @@ $(document).ready(function() {
 
     }
 
+    // for artist page, retrieves one artist by reference number
     function byArtistRef(event) {
         event.preventDefault();
         console.log("btn clicked");
@@ -47,7 +50,36 @@ $(document).ready(function() {
 
     }
 
+    function artistCreate(event) {
+        event.preventDefault();
+        console.log("submit button clicked");
 
+
+        $.ajax({
+            type: "POST",
+            url: "/artist/create", 
+            data: {     
+                'artist_reference_number': $("#artistId").val().trim(),
+                "name_first": $("#nameFirst").val().trim(),
+                "name_last": $("#nameLast").val().trim(),
+                "address_street": $("#streetAddress").val().trim(),
+                'address_city': $("#inputCity").val().trim(),
+                'address_state': $("#state").val().trim(),
+                'address_zipcode': $("#inputZip").val().trim(),
+                'phone': $("#inputPhone").val().trim(),
+                'payable_to': $("#payableTo").val().trim(),
+                'consignment_percentage': $("#consignmentPercent").val().trim(),
+                'date_contract': $("#dateContract").val().trim()
+            },
+            success: function(msg) {
+                alert("ok");
+                $('#add-post').modal('hide');
+            },
+            error: function() {
+                alert("Something went wrong!");
+            }
+        });
+    }
 
 
 
