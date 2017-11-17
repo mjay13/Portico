@@ -12,6 +12,9 @@ $(document).ready(function() {
     $(document).on("click", "#ref-enter-button", byArtistRef);
     // artist page, create new artist
     $(document).on("click", "#newArtistSubmit", artistCreate);
+    // post for a new artist
+    $(document).on("click", "#", postArtist);
+
 
 
     // for catalog, get all items
@@ -57,9 +60,9 @@ $(document).ready(function() {
 
         $.ajax({
             type: "POST",
-            url: "/artist/create", 
-            data: {     
-               'artist_reference_number': $("#artistId").val().trim(),
+            url: "/artist/create",
+            data: {
+                'artist_reference_number': $("#artistId").val().trim(),
                 'name_first': $("#nameFirst").val().trim(),
                 'name_last': $("#nameLast").val().trim(),
                 'address_street': $("#streetAddress").val().trim(),
@@ -71,26 +74,41 @@ $(document).ready(function() {
                 'consignment_percentage': $("#consignmentPercent").val().trim(),
                 'date_contract': $("#dateContract").val().trim()
             }
-            // success: function(msg) {
-            //     alert("ok");
-            //     $('#add-post').modal('hide');
-            // },
-            // error: function() {
-            //     alert("Something went wrong!");
-        //     // }
-        }).done(window.location.href = "/artist");
+            // insert a modal here to say yay you entered a new artist
+        }).done(function() {
+            window.location.href = "/artist";
+        });
     }
 
-function postArtist(data) {
-    $.ajax({
-      method: "POST",
-      url: "/artist/create",
-      data: data
-    })
-    .done(function() {
-      window.location.href = "/artist";
-    });
-  }
+    function postArtist(data) {
+        console.log("submit button clicked");
+
+        $.ajax({
+                method: "POST",
+                url: "/artist/create",
+                data: {
+                    // name_last: $("#nameLast").val().trim(),
+                    // like the above
+                    // name_first: req.body.name_first,
+                    // address_street: req.body.address_street,
+                    // address_city: req.body.address_city,
+                    // address_state: req.body.address_state,
+                    // address_zipcode: req.body.address_zipcode,
+                    // phone: req.body.phone,
+                    // payable_to: req.body.payable_to,
+                    // consignment_percentage: req.body.percentage
+                },
+                where: {
+                	artist_reference_number: artist_reference_number
+                }
+
+
+                 // insert a modal here to say yay you updated a new artist
+            })
+            .done(function() {
+                window.location.href = "/artist";
+            });
+    }
 
 
 
