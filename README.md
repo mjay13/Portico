@@ -2,7 +2,7 @@
 
 PORTICO--Product Organization with Real Time Inventory Control is an app that manages artists and artworks that are for sale in a gallery or shop setting. 
 
-Deployed with Heroku: https://github.com/mjay13/Portico
+Deployed with Heroku: https://portico-inventory-control.herokuapp.com/
 
 We used the following technologies for Portico:
 mySQL, Express, Node.js, CSS, Bootstrap
